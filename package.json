@@ -1,0 +1,37 @@
+{
+    "name": "project-root",
+    "version": "1.0.0",
+    "description": "A project for managing profiles, assets, and financial goals.",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "dev": "nodemon app.js",
+        "migrate": "sequelize-cli db:migrate",
+        "seed": "sequelize-cli db:seed:all"
+    },
+    "dependencies": {
+        "bcrypt": "^5.1.1",
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.20.2",
+        "cors": "^2.8.5",
+        "crypto": "^1.0.1",
+        "dotenv": "^16.4.5",
+        "express": "^4.19.2",
+        "express-rate-limit": "^7.4.0",
+        "express-session": "^1.18.0",
+        "express-validator": "^7.2.0",
+        "jsonwebtoken": "^9.0.2",
+        "mysql2": "^2.3.3",
+        "nodemailer": "^6.9.14",
+        "passport": "^0.7.0",
+        "passport-google-oauth20": "^2.0.0",
+        "sequelize": "^6.37.3"
+    },
+    "devDependencies": {
+        "eslint": "^9.9.0",
+        "nodemon": "^2.0.22",
+        "sequelize-cli": "^6.6.2"
+    },
+    "author": "Your Name",
+    "license": "ISC"
+}
