@@ -37,8 +37,8 @@ const FinancialGoal = require('./models/FinancialGoal');
 const Asset = require('./models/Asset');
 
 
-app.get('/',(req,res)=>{
-  res.send('hello')
+app.get('/hello',(req,res)=>{
+  res.send('hello its finai server')
 })
 
 
