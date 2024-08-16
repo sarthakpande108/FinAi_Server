@@ -8,8 +8,6 @@ const { body, validationResult } = require('express-validator');
 const crypto = require('crypto');
 require('dotenv').config();
 // Email configuration
-
-const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
 const transporter = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
@@ -32,7 +30,7 @@ async function sendVerificationEmail(email, token) {
     from: process.env.EMAIL_USER,
     to: email,
     subject: 'Verify your email address',
-    text: `Please verify your email by clicking the following link:${FRONTEND_URL}/verify-email?token=${token}`,
+    text: `Please verify your email by clicking the following link:http://localhost:3000/verify-email?token=${token}`,
   };
 
   try {
@@ -127,10 +125,10 @@ exports.googleAuthCallback = (req, res, next) => {
   passport.authenticate('google', { session: false }, async (err, user, info) => {
     if (err) {
       console.error('Authentication error:', err.message);
-      return res.redirect(`${FRONTEND_URL}`); // Redirect to login page on error
+      return res.redirect('http://localhost:3000'); // Redirect to login page on error
     }
     if (!user) {
-      return res.redirect(`${FRONTEND_URL}`); // Redirect to login page if no user
+      return res.redirect('http://localhost:3000'); // Redirect to login page if no user
     }
 
     try {
@@ -139,10 +137,10 @@ exports.googleAuthCallback = (req, res, next) => {
       const token = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
       // Redirect to profile page with token
-      res.redirect(`${FRONTEND_URL}/profile?token=${token}`);
+      res.redirect(`http://localhost:3000/profile?token=${token}`);
     } catch (error) {
       console.error('Error processing user data:', error.message);
-      res.redirect(`${FRONTEND_URL}`);
+      res.redirect('http://localhost:3000');
     }
   })(req, res, next);
 };
