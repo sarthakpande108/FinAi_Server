@@ -37,6 +37,11 @@ const FinancialGoal = require('./models/FinancialGoal');
 const Asset = require('./models/Asset');
 
 
+app.get('/',(req,res)=>{
+  res.send('hello')
+})
+
+
 sequelize.sync({ force: process.env.NODE_ENV === 'development' }) // Use { force: true } for development to drop tables if they exist
   .then(() => {
     console.log('Database & tables created!');
