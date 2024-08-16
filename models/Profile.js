@@ -53,11 +53,6 @@ const Profile = sequelize.define('Profile', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  aadharNumber: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-  },
   dependents: {
     type: DataTypes.JSON,
     allowNull: true,
