@@ -30,7 +30,7 @@ async function sendVerificationEmail(email, token) {
     from: process.env.EMAIL_USER,
     to: email,
     subject: 'Verify your email address',
-    text: `Please verify your email by clicking the following link:http://localhost:3000/verify-email?token=${token}`,
+    text: `Please verify your email by clicking the following link:https://finai-lfxz.onrender.com/verify-email?token=${token}`,
   };
 
   try {
