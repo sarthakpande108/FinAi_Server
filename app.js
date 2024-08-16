@@ -12,7 +12,7 @@ require('./config/passport');
 
 const app = express();
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || '*', // Default to '*' for local testing
+  origin: process.env.FRONTEND_URL || 'http://localhost:3000', // Default to '*' for local testing
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
