@@ -41,6 +41,20 @@ app.get('/hello',(req,res)=>{
   res.send('hello its finai server')
 })
 
+app.post('/api/generate', async (req, res) => {
+  try {
+    const { prompt } = req.body;
+
+    // Update this URL with your ngrok public URL
+    const response = await axios.post('https://35fb-35-240-164-212.ngrok-free.app/generate', { prompt });
+
+    res.json({ generatedText: response.data.generated_text });
+  } catch (error) {
+    console.error('Error generating text:', error);
+    res.status(500).send('Error generating text');
+  }
+});
+
 
 sequelize.sync({ force: process.env.NODE_ENV === 'development' }) // Use { force: true } for development to drop tables if they exist
   .then(() => {
