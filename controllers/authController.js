@@ -29,8 +29,25 @@ async function sendVerificationEmail(email, token) {
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: email,
-    subject: 'Verify your email address',
-    text: `Please verify your email by clicking the following link:https://finai-lfxz.onrender.com/verify-email?token=${token}`,
+    subject: 'Welcome to FinAI - Verify Your Email Address',
+    html: `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px; background-color: #f9f9f9;">
+        <h1 style="color: #0044cc;">Welcome to FinAI!</h1>
+        <p>Dear valued user,</p>
+        <p>Thank you for joining <strong>FinAI</strong>, your trusted partner in AI-powered financial planning. We're excited to help you take control of your financial future with personalized, data-driven insights and recommendations.</p>
+        <p>At FinAI, we combine advanced artificial intelligence with a deep understanding of financial markets to provide tailored investment strategies and financial advice that meets your unique needs and goals. Whether you're saving for a house, planning for retirement, or looking to grow your wealth, FinAI is here to guide you every step of the way.</p>
+        <p>To get started, please verify your email address by clicking the link below:</p>
+        <p style="text-align: center;">
+          <a href="https://finai-lfxz.onrender.com/verify-email?token=${token}" style="display: inline-block; padding: 10px 20px; color: white; background-color: #0044cc; border-radius: 5px; text-decoration: none;">Verify Your Email</a>
+        </p>
+        <p>If the button above doesn't work, please copy and paste the following link into your web browser:</p>
+        <p style="word-break: break-all;">https://finai-lfxz.onrender.com/verify-email?token=${token}</p>
+        <p>If you did not sign up for a FinAI account, please ignore this email.</p>
+        <p>Thank you for choosing FinAI. We look forward to helping you achieve your financial goals.</p>
+        <p>Best regards,</p>
+        <p>The FinAI Team</p>
+      </div>
+    `,
   };
 
   try {

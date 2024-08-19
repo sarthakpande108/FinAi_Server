@@ -7,7 +7,7 @@ const FinancialGoal = sequelize.define('FinancialGoal', {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
-  },
+  }, 
   goal: {
     type: DataTypes.STRING,
     allowNull: false,
